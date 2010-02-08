@@ -1,3 +1,6 @@
+# TODO:
+#  - xhtml11.dtd requires http://www.w3.org/TR/xhtml-modularization/
+#    to work, should those modules be included here or as separate spec ?
 %define		major	1
 %define		minor	1
 %define		micro	%{nil}
@@ -56,11 +59,11 @@ xmlcatalog --noout --add rewriteSystem \
 	$RPM_BUILD_ROOT%{catalog}
 xmlcatalog --noout -add public \
 	"-//W3C//DTD XHTML 1.1//EN" \
-	xhtml11-flat.dtd \
+	xhtml11.dtd \
 	$RPM_BUILD_ROOT%{catalog}
 xmlcatalog --noout -add public \
-	"-//W3C//ENTITIES XHTML 1.1 Document Model 1.0//EN" \
-	xhtml11-model-1.mod \
+	"-//W3C//DTD XHTML 1.1//EN" \
+	xhtml11-flat.dtd \
 	$RPM_BUILD_ROOT%{catalog}
 
 install DTD/* $RPM_BUILD_ROOT%{_datadir}/sgml/html/xml-dtd-%{v_er}
